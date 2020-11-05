@@ -13,14 +13,18 @@ function moveRight() {
 document.addEventListener('keydown', function (event) {
   if (event.code === 'ArrowLeft') {
     $car.className = 'rotate-left';
+
   } else if (event.code === 'ArrowRight') {
     $car.className = 'rotate-right';
+
   } else if (event.code === 'ArrowUp') {
     $car.className = 'rotate-up';
+
   } else if (event.code === 'ArrowDown') {
     $car.className = 'rotate-down';
+
   } else if (event.code === 'Space') {
-    moveRight();
+    var newInterval = setInterval(moveRight, 16);
   }
 
 });
