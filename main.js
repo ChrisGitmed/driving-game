@@ -1,4 +1,14 @@
+var car = {
+  xPosition: 10,
+  yPosition: 0
+};
+
 var $car = document.querySelector('img');
+
+function moveRight() {
+  car.xPosition += 2;
+  $car.style.left = car.xPosition + 'px'
+}
 
 document.addEventListener('keydown', function (event) {
   if (event.code === 'ArrowLeft') {
@@ -9,6 +19,8 @@ document.addEventListener('keydown', function (event) {
     $car.className = 'rotate-up';
   } else if (event.code === 'ArrowDown') {
     $car.className = 'rotate-down';
+  } else if (event.code === 'Space') {
+    moveRight();
   }
 
 });
