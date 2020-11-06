@@ -4,10 +4,12 @@ var car = {
 };
 
 var $car = document.querySelector('img');
+var carIsOff = true;
+var intervalID;
 
 function moveRight() {
   car.xPosition += 2;
-  $car.style.left = car.xPosition + 'px'
+  $car.style.left = car.xPosition + 'px';
 }
 
 document.addEventListener('keydown', function (event) {
@@ -24,7 +26,12 @@ document.addEventListener('keydown', function (event) {
     $car.className = 'rotate-down';
 
   } else if (event.code === 'Space') {
-    var newInterval = setInterval(moveRight, 16);
+    if (carIsOff) {
+      intervalID = setInterval(moveRight, 16);
+      carIsOff = false;
+    } else {
+      clearInterval(intervalID);
+      carIsOff = true;
+    }
   }
-
 });
